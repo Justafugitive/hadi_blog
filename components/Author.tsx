@@ -1,11 +1,19 @@
 import React from 'react'
 
-const Author = () => {
+interface AuthorProps {
+  author: any;
+}
+
+const Author = ({ author }:AuthorProps) => {
   return (
     <div>
-        <h1>
-            Author
-        </h1>
+        <img
+          alt={author.name}
+          height="100px"
+          width="100px"
+          className="align-middle rounded-full"
+          src={author.avatar.url}
+        />
     </div>
   )
 }
