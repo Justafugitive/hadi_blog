@@ -1,12 +1,44 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import moment from 'moment';
+import parse from 'html-react-parser';
 
-const Comments = () => {
+import { getComments } from '../services';
+
+interface CommentsProps {
+  slug: any;
+}
+
+const Comments = ({slug}:CommentsProps) => {
+    const [comments, setComments] = useState<any>([]);
+
+    useEffect(() => {
+      getComments()
+        .then((result) => setComments(result))
+    }, [])
   return (
-    <div>
-        <h1>
+    <>
+      {comments.length > 0 && (
+        <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
+          <h3 className="text-xl mb-8 font-semibold border-b pb-4">
+            {comments.length}
+            {' '}
             Comments
-        </h1>
-    </div>
+          </h3>
+          {comments.map((comment:any) => (
+            <div key={comment.createdAt} className="border-b border-gray-100 mb-4 pb-4">
+              <p className="mb-4">
+                <span className="font-semibold">{comment.name}</span>
+                {' '}
+                on
+                {' '}
+                {moment(comment.createdAt).format('MMMM Do YYYY')}
+              </p>
+              <p className="whitespace-pre-line text-gray-600 w-full">{parse(comment.comment)}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </>
   )
 }
 
