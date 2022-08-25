@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
 import { getCategories } from '../services';
 
-const categories = [{name: 'Business', slug: 'Business'}, {name: 'Tech', slug: 'tech'}]
-
 const Header = () => {
     const [categories, setCategories] = useState([] as any[]);
     
