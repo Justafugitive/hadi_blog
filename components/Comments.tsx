@@ -12,7 +12,7 @@ const Comments = ({slug}:CommentsProps) => {
     const [comments, setComments] = useState<any>([]);
 
     useEffect(() => {
-      getComments()
+      getComments(slug)
         .then((result) => setComments(result))
     }, [])
   return (
