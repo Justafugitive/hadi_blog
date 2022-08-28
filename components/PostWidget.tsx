@@ -5,8 +5,8 @@ import Image from 'next/image'
 import { getRecentPosts, getSimilarPosts } from '../services';
 
 interface WidgetProps {
-  categories: any[];
-  slug: string;
+  categories?: any[];
+  slug?: string;
 }
 
 const PostWidget = ({ categories, slug }:WidgetProps) => {
