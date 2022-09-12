@@ -50,7 +50,7 @@ const PostDetail = ({ post }) => {
         </div>
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full">
-            <div className="md:flex mb-4 w-full justify-center lg:mb-0 lg:w-auto mr-8 items-center">
+            <div className="hidden md:flex justify-center lg:mb-0 lg:w-auto mr-8 items-center">
               <img
                 alt={post.author.name}
                 height="30px"
@@ -69,7 +69,7 @@ const PostDetail = ({ post }) => {
           </div>
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
           {post.content.raw.children.map((typeObj, index) => {
-            const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item));
+            const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
