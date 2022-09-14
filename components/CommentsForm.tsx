@@ -55,7 +55,7 @@ const CommentsForm = ({ slug }:CommentsFormProps) => {
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-        <h3 className="text-xl mb-8 font-semibold border-b pb-4">Leave a comment</h3>
+        <h3 className="text-xl mb-8 font-semibold border-b pb-4">Tell us your thoughts</h3>
         <div className="grid grid-cols-1 gap-4 mb-4">
           <textarea 
             ref={commentEl} 
